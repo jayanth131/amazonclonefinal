@@ -1,0 +1,95 @@
+.login {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_logo {
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20x;
+    object-fit: contain;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.heading {
+    margin-top: -10px;
+}
+
+form {
+    margin-top: -30px;
+}
+
+.email-input {
+    margin-top: -25px;
+}
+
+.password-input {
+    margin-top: -25px;
+}
+
+.password {
+    margin-top: 2px;
+}
+
+.signin {
+    margin-top: 10px;
+    background-color: #f0c14b;
+    border-radius: 2px;
+    height: 30px;
+    width: 100%;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+
+}
+
+.create-account {
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: darkgray;    
+}
+
+.login_container {
+    width: 270px;
+    margin-top: 17px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+
+p {
+    font-size: 13px;
+    margin-top: 0px;
+}
+
+.login_container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.login_container form h5 {
+    margin-bottom: 23px;
+}
+
+.login_container form input {
+    height: 30px;
+    margin-bottom: 10px;
+    background: white;
+    width: 98%;
+}
+
+.login_container p {
+    margin-top: 15px;
+    font-size: 12px;
+}

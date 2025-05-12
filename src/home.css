@@ -1,0 +1,65 @@
+.primeimage {
+  width: 100%; /* Full viewport width */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto -20px auto;
+  background-color: black;
+  padding: 0;
+}
+
+/* Fix container */
+.home {
+  width: 100%;
+  max-width: 100%; /* Remove 1500px limit */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Row of products */
+.home_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Space between the 3 items */
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .home_row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primeimage {
+    margin-bottom: -10px;
+    padding-right: 0;
+  }
+}
+
+/* Phone (480px and below) */
+@media (max-width: 480px) {
+  .home {
+    padding: 0 10px;
+  }
+
+  .home_row {
+    padding: 8px;
+    margin: 0;
+  }
+
+  .primeimage {
+    width: 100%;
+    object-fit: cover;
+  }
+}
