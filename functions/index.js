@@ -2,6 +2,8 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config(); // At the top of the file
+
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = require("stripe")(stripeSecretKey); // ✅ Real test secret key from Stripe
 
