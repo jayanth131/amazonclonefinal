@@ -2,7 +2,8 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const stripe = require("stripe")("sk_test_51RMY3IRiXqTdx1bzAJS0LpzIR46cknyhbxF6jTKEFPtaf0iM8ywLEQAYiGabUY8bKsUSRQ5eZYSAd1kivTZUPis300gOcyff9F"); // ✅ Real test secret key from Stripe
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripe = require("stripe")(stripeSecretKey); // ✅ Real test secret key from Stripe
 
 const app = express();
 app.use(cors({ origin: true }));
