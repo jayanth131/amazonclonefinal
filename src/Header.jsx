@@ -1,5 +1,4 @@
-// Header.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import { ShoppingBasket } from '@mui/icons-material';
@@ -8,6 +7,7 @@ import { auth } from './firebase';
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleAuthentication = () => {
     if (user) {
@@ -18,10 +18,10 @@ function Header() {
     }
   };
 
-  const handleSearch = (e) => {
+  const handleSearchClick = () => {
     dispatch({
       type: "SET_SEARCH_TERM",
-      term: e.target.value
+      term: searchTerm
     });
   };
 
@@ -34,7 +34,7 @@ function Header() {
           <img
             src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="Amazon Logo"
-            className="h-10 object-contain"
+            className="h-10 object-contain mt-[13px]"
           />
         </Link>
 
@@ -43,12 +43,16 @@ function Header() {
           <input
             type="text"
             placeholder="Search..."
-            onChange={handleSearch} // ✅ Add this
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-4 py-2 text-black bg-white text-sm focus:outline-none"
           />
-          <div className="bg-orange-500 p-2">
+          <button
+            onClick={handleSearchClick}
+            className="bg-orange-500 p-2"
+          >
             <SearchIcon className="text-white" />
-          </div>
+          </button>
         </div>
 
         {/* Nav Items */}
@@ -60,7 +64,7 @@ function Header() {
               onClick={handleAuthentication}
               className="flex flex-col items-start text-xs cursor-pointer hover:bg-orange-500 hover:text-black px-2 py-1 rounded-md"
             >
-              <span>Hello, {user ? user.email : 'Guest'}</span>
+              <span>Hello, {user ? user.displayName : 'Guest'}</span>
               <span className="font-bold">{user ? 'Sign Out' : 'Sign In'}</span>
             </div>
           </Link>

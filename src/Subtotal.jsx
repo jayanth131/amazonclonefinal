@@ -1,13 +1,10 @@
 import React from 'react';
 import { useStateValue } from './Stateproduct';
-import './subtotal.css';
 import { useNavigate } from 'react-router-dom';
 
-// ✅ Updated function to calculate total using quantity
 const getBasketTotal = (basket) =>
   basket.reduce((amount, item) => amount + item.price * item.quantity, 0);
 
-// ✅ Updated function to calculate total item count
 const getTotalItemCount = (basket) =>
   basket.reduce((count, item) => count + item.quantity, 0);
 
@@ -22,15 +19,17 @@ function Subtotal() {
   }).format(getBasketTotal(basket));
 
   return (
-    <div className="subtotal">
-      <p className='subtotalp'>
-        Subtotal ({getTotalItemCount(basket)} items): <strong>{formattedTotal}</strong>
+    <div className="bg-white shadow-lg p-6 rounded-lg border border-orange-300 w-full max-w-sm sticky top-24">
+      <p className="text-sm text-gray-800 mb-4">
+        Subtotal (
+        <span className="font-semibold">{getTotalItemCount(basket)}</span> items):
+        <strong className="ml-2 text-lg text-orange-600">{formattedTotal}</strong>
       </p>
-      <small className="subtotal_gift">
-        <input type="checkbox" className='input-box' />
-        <p className='line'>This order contains a gift</p>
-      </small>
-      <button className='but' onClick={() => navigate('/payment')}>
+
+      <button
+        onClick={() => navigate('/payment')}
+        className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded transition duration-200"
+      >
         Proceed to Checkout
       </button>
     </div>

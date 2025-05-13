@@ -1,13 +1,25 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { useStateValue } from './Stateproduct';
+import { useNavigate } from 'react-router-dom';
 
 function Product({ id, img, title, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
 
-  const addToBasket = () =>
- {
-   
+  const addToBasket = () => {
+    if (!user) {
+      toast.error("Please sign in to add items to your basket", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        theme: "colored",
+      });
+      return navigate('/login');
+    }
 
     dispatch({
       type: 'ADD_TO_BASKET',
@@ -21,7 +33,7 @@ function Product({ id, img, title, price, rating }) {
           alt={title}
           className="w-12 h-12 object-contain mr-3 border border-gray-300 rounded"
         />
-        <div className='  bg-orange'>
+        <div>
           <p className="font-semibold">{title}</p>
           <p className="text-sm text-white-600">Added to your basket!</p>
         </div>
@@ -35,8 +47,8 @@ function Product({ id, img, title, price, rating }) {
         draggable: true,
         theme: "colored",
         style: {
-          backgroundColor: "darkorange", // 🔶 custom orange background
-          color: 'white',             // ✅ white text
+          backgroundColor: "darkorange",
+          color: 'white',
         },
       }
     );

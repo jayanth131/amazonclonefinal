@@ -128,7 +128,7 @@ export default function Payment() {
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-orange-600 mb-2">Delivery Address</h3>
           <div className="bg-orange-50 p-4 rounded-lg text-gray-800 space-y-1">
-            <p>Hello, <span className="font-medium text-orange-700">{user?.email}</span></p>
+            <p>Hello, <span className="font-medium text-orange-700">{user?.displayName}</span></p>
             <p>123 React Lane</p>
             <p>Los Angeles, CA</p>
           </div>
