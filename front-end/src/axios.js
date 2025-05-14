@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://amazonclone-final-rnyu.onrender.com/api/orders'
+  baseURL: 'http://localhost:5000', // 👈 Updated to your standalone server
 });
 
 instance.interceptors.request.use((request) => {
