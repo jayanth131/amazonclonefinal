@@ -23,6 +23,7 @@ function Header() {
       type: "SET_SEARCH_TERM",
       term: searchTerm
     });
+    setSearchTerm("");
   };
 
   return (
